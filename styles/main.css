@@ -1999,6 +1999,9 @@ body {
     }
     .mist .site-title i {
       background: #FFF;
-    }.box-shadow-wrapper {
+    }body {
+    background: rgba(12, 100, 129, 1) url('https://random.52ecy.cn/randbg.php') fixed no-repeat;   //修改背景图片
+    color: #555;
+}.box-shadow-wrapper {
       box-shadow: none !important;
     }
