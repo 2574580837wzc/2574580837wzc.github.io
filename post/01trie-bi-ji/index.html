@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-      <meta charset="UTF-8"/>
+    <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="2574580837wzc">
 <meta name="theme-color" content="#000">
-<title>2574580837wzc</title>
+<title>01trie笔记 | 2574580837wzc</title>
 <link rel="shortcut icon" href="https://2574580837wzc.github.io/favicon.ico?v=1583326001934">
 <link rel="stylesheet" href="https://2574580837wzc.github.io/styles/main.css">
 
@@ -25,6 +25,8 @@
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
     onload="renderMathInElement(document.body);"></script>
 
+    <meta name="description" content="01trie笔记" />
+    <meta name="keywords" content="算法" />
   </head>
   <body>
     <div class="head-top-line"></div>
@@ -122,10 +124,16 @@
     </div>
     <div class="main-continer">
       
-      <div class="section-layout  gemini">
+      <div class="section-layout gemini ">
         <div class="section-layout-wrapper">
-          <div class="sidebar">
-    
+          
+
+<div class="sidebar">
+    <div class="sidebar-box box-shadow-wrapper bg-color right-motion" id="sidebar">
+      
+      <div class="sidebar-body gemini" id="sidebar_body">
+        
+          
 <div class="sidebar-wrapper box-shadow-wrapper bg-color">
   <div class="sidebar-item">
     <img class="site-author-image right-motion" src="https://2574580837wzc.github.io/images/avatar.png"/>
@@ -167,46 +175,252 @@
 
 
 </div>
-</div>
-            <div class="section-box tag-line">
-              <div class="box-shadow-wrapper">
-                <div class="bg-color">
-                  <section class="section posts-expand">
-                    <div class="padding-wrapper">
-  <div class="tag-timeline-box">
-    <div class="tag-timeline-wrapper">
-      <div class="tag-timeline-title">
-        <h2>
-          Gridea
-          <small>标签</small>
-        </h2>
+        
       </div>
-      
+    </div>
+</div>
+<script>
+  const SIDEBAR_TITLE_ACTIVE = 'sidebar-title-active';
+  const SIDEBAR_BODY_ACTIVE = 'sidebar-body-active';
+  const SLIDE_UP_IN = 'slide-up-in';
+
+  let sidebar = document.querySelector('#sidebar'),
+  tocSideBar = document.querySelector('#tocSideBar'),
+  metaSideBar = document.querySelector('#metaSideBar'),
+  postToc = document.querySelector('#post_toc'),
+  postSiteMeta = document.querySelector('#post_side_meta'),
+  sidebarTitle = document.querySelector('.sidebar-title'),
+  sidebarBody = document.querySelector('#sidebar_body');
+
+  tocSideBar && tocSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  metaSideBar && metaSideBar.addEventListener('click', (e) => {
+    toggleSidebar(e);
+  });
+
+  function toggleSidebar(e) {
+    let currentTitle = document.querySelector("."+SIDEBAR_TITLE_ACTIVE);
+    if (currentTitle == e.srcElement) {
+      return ;
+    }
+    let current, showElement, hideElement;
+    if (e.srcElement == metaSideBar) {
+      showElement = postSiteMeta;
+      hideElement = postToc;
+    } else if (e.srcElement == tocSideBar){
+      showElement = postToc;
+      hideElement = postSiteMeta;
+    }
+    currentTitle.classList.remove(SIDEBAR_TITLE_ACTIVE);
+    e.srcElement.classList.add(SIDEBAR_TITLE_ACTIVE);
+
+    window.Velocity(hideElement, 'stop');
+    window.Velocity(hideElement, 'transition.slideUpOut', {
+      display: 'none',
+      duration: 200,
+      complete: function () {
+        window.Velocity(showElement, 'transition.slideDownIn', {
+          duration: 200
+        });
+      }
+    })
+    hideElement.classList.remove(SIDEBAR_BODY_ACTIVE);
+    showElement.classList.add(SIDEBAR_BODY_ACTIVE);
+  }
+
+  postToc.addEventListener('transitionend', function() {
+    this.classList.remove(SLIDE_UP_IN);
+  });
+
+
+  if (sidebarBody.classList.contains('pisces') || sidebarBody.classList.contains('gemini')) {
+    let hasFix = false;
+    let scrollEl = document.querySelector('.main-continer');
+    let limitTop = document.querySelector('#nav_ul').children.length * 42 + 162;
+    window.addEventListener('scroll', function(e) {
+    if (document.scrollingElement.scrollTop >= limitTop) {
+      if (!hasFix) {
+        sidebar.classList.add('sidebar-fixed');
+        hasFix = true;
+      }
+    } else {
+      if (hasFix) {
+        sidebar.classList.remove('sidebar-fixed');
+        hasFix = false;
+      }
+    }
+  });
+  }
+  
+</script>
+          <div class="section-box box-shadow-wrapper">
+            <div class="section bg-color post post-page">
+              <div class="article-box">
+    <header class="post-header">
+  <h1 class="post-title">
+    <a class="post-title-link" href="https://2574580837wzc.github.io/post/01trie-bi-ji/">
+      01trie笔记
+    </a>
+  </h1>
+  <div class="post-meta">
+    
+    <span class="meta-item pc-show">
+      <i class="fa fa-calendar-o"></i>
+      <span>发布于</span>
+      <span>2020-03-04</span>
+      <span class="post-meta-divider pc-show">|</span>
+    </span>
+    
+      <span class="meta-item">
+        <i class="fa fa-folder-o"></i>
+        <span class="pc-show">分类于</span>
         
           
-        
-      
-        
-          
-            <a href="https://2574580837wzc.github.io/post/hello-gridea/">
-              <div class="motion-warpper">
-                <div class="tag-post-node">
-                  <h1>
-                    12-12
-                    <small>Hello Gridea</small>
-                  </h1>
-                </div>  
-              </div>
+            <a href="https://2574580837wzc.github.io/tag/2mOmOPdrv/">
+              <span>算法</span>
             </a>
           
         
+      </span>
+      <span class="post-meta-divider">|</span>
+    
+    <span class="meta-item">
+      <i class="fa fa-clock-o"></i>
+      <span>3分钟</span>
+    </span>
+    <span class="meta-item">
+      <span class="post-meta-divider">|</span>
+      <i class="fa fa-file-word-o"></i>
+      <span>488<span class="pc-show">字数</span></span>
+    </span>
+  </div>
+</header>
+</div>
+              <div class="post-body next-md-body" id="post_body">
+                <blockquote>
+<p>前置芝士<br>
+二进制，tire</p>
+</blockquote>
+<p>###平衡树<br>
+一种数据结构，来维护一些数，需要支持以下操作：<br>
+1.插入 xx 数<br>
+2.删除 xx 数(若有多个相同的数，因只删除一个)<br>
+3.查询 xx 数的排名(排名定义为比当前数小的数的个数 +1+1 )<br>
+4.查询排名为 xx 的数<br>
+5.求 xx 的前驱(前驱定义为小于 xx，且最大的数)<br>
+6.求 xx 的后继(后继定义为大于 xx，且最小的数)</p>
+<p>###01tire</p>
+<ul>
+<li>
+<p>####功能<br>
+一种数据结构，来维护一些数，可以支持以下操作：<br>
+1.插入 xx 数<br>
+2.删除 xx 数(若有多个相同的数，因只删除一个)<br>
+3.查询 xx 数的排名(排名定义为比当前数小的数的个数 +1+1 )<br>
+4.查询排名为 xx 的数<br>
+5.求 xx 的前驱(前驱定义为小于 xx，且最大的数)<br>
+6.求 xx 的后继(后继定义为大于 xx，且最小的数)</p>
+</li>
+<li>
+<p>####基本原理<br>
+将每个数换算成同样长度的二进制01串（高位用零补全），再当成字符串存入字典树。</p>
+</li>
+</ul>
+<ol>
+<li>插入/删除</li>
+</ol>
+<pre><code class="language-cpp">void ins(int val,int c)//c与操作有关，插入时为1，删除时为-1
+{
+    val+=(int)1e7;
+    for(int i=31,rt=root,t;i;i--)
+	{
+        if(!ch[rt][t=(val&gt;&gt;i&amp;1)])ch[rt][t]=++tot;
+        num[rt=ch[rt][t]]+=c;
+    }
+}
+</code></pre>
+<ol start="2">
+<li>查询排名</li>
+</ol>
+<pre><code class="language-cpp">int rak(int val,int ret=0,int t=0)
+{
+    val+=(int)1e7;
+    for(int i=31,rt=root,t;i;i--)
+	{
+        if((t=val&gt;&gt;i&amp;1))ret+=num[ch[rt][0]];
+        rt=ch[rt][t];
+    }
+    return ret;
+}
+</code></pre>
+<ol start="3">
+<li>查询第k位</li>
+</ol>
+<pre><code class="language-cpp">int kth(int k,int ret=0)
+{
+    for(int i=31,rt=root,t;i;i--)
+        if(k&gt;num[ch[rt][0]])ret|=1&lt;&lt;i,k-=num[ch[rt][0]],rt=ch[rt][1];
+        else rt=ch[rt][0];
+    return ret-(int)1e7;
+}
+</code></pre>
+<p>其余操作可如下处理</p>
+<pre><code class="language-cpp">cond(5,printf(&quot;%d\n&quot;,kth(rak(y))+1));
+cond(6,printf(&quot;%d\n&quot;,kth(rak(y+1)+1)+1));
+</code></pre>
+<ul>
+<li>###注意</li>
+</ul>
+<ol>
+<li>空间要开32倍；</li>
+<li>复杂度均为严格logn；</li>
+</ol>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>完</p>
+</blockquote>
+</blockquote>
+</blockquote>
+
+              </div>
+              <div class="post-footer">
+  <ul class="post-copyright">
+    <li class="post-copyright-author">
+      <strong>本文作者：</strong>
+      2574580837wzc
+    </li>
+    <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://2574580837wzc.github.io/post/01trie-bi-ji/" title="01trie笔记">01trie笔记</a>
+    </li>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong>
+      本博客所有文章除特别声明外，转载请注明出处！
+    </li>
+  </ul>
+  <div class="tags">
+    
+      <a href="https://2574580837wzc.github.io/tag/2mOmOPdrv/"># 算法</a>
+    
+  </div>
+  <div class="nav">
+    <div class="nav-prev">
+      
+    </div>
+    <div class="nav-next">
+      
+        <a class="nav-pc-next" title="Hello Gridea" href="https://2574580837wzc.github.io/post/hello-gridea/">Hello Gridea</a>
+        <a class="nav-mobile-next" title="Hello Gridea" href="https://2574580837wzc.github.io/post/hello-gridea/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>
 </div>
-                  </section>
-                </div>
-              </div>
+              
+            </div>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://2574580837wzc.github.io</id>
     <title>2574580837wzc</title>
-    <updated>2020-03-03T09:11:32.937Z</updated>
+    <updated>2020-03-04T12:46:53.713Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://2574580837wzc.github.io"/>
     <link rel="self" href="https://2574580837wzc.github.io/atom.xml"/>
@@ -10,6 +10,99 @@
     <logo>https://2574580837wzc.github.io/images/avatar.png</logo>
     <icon>https://2574580837wzc.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, 2574580837wzc</rights>
+    <entry>
+        <title type="html"><![CDATA[01trie笔记]]></title>
+        <id>https://2574580837wzc.github.io/post/01trie-bi-ji/</id>
+        <link href="https://2574580837wzc.github.io/post/01trie-bi-ji/">
+        </link>
+        <updated>2020-03-04T12:44:42.000Z</updated>
+        <content type="html"><![CDATA[<blockquote>
+<p>前置芝士<br>
+二进制，tire</p>
+</blockquote>
+<p>###平衡树<br>
+一种数据结构，来维护一些数，需要支持以下操作：<br>
+1.插入 xx 数<br>
+2.删除 xx 数(若有多个相同的数，因只删除一个)<br>
+3.查询 xx 数的排名(排名定义为比当前数小的数的个数 +1+1 )<br>
+4.查询排名为 xx 的数<br>
+5.求 xx 的前驱(前驱定义为小于 xx，且最大的数)<br>
+6.求 xx 的后继(后继定义为大于 xx，且最小的数)</p>
+<p>###01tire</p>
+<ul>
+<li>
+<p>####功能<br>
+一种数据结构，来维护一些数，可以支持以下操作：<br>
+1.插入 xx 数<br>
+2.删除 xx 数(若有多个相同的数，因只删除一个)<br>
+3.查询 xx 数的排名(排名定义为比当前数小的数的个数 +1+1 )<br>
+4.查询排名为 xx 的数<br>
+5.求 xx 的前驱(前驱定义为小于 xx，且最大的数)<br>
+6.求 xx 的后继(后继定义为大于 xx，且最小的数)</p>
+</li>
+<li>
+<p>####基本原理<br>
+将每个数换算成同样长度的二进制01串（高位用零补全），再当成字符串存入字典树。</p>
+</li>
+</ul>
+<ol>
+<li>插入/删除</li>
+</ol>
+<pre><code class="language-cpp">void ins(int val,int c)//c与操作有关，插入时为1，删除时为-1
+{
+    val+=(int)1e7;
+    for(int i=31,rt=root,t;i;i--)
+	{
+        if(!ch[rt][t=(val&gt;&gt;i&amp;1)])ch[rt][t]=++tot;
+        num[rt=ch[rt][t]]+=c;
+    }
+}
+</code></pre>
+<ol start="2">
+<li>查询排名</li>
+</ol>
+<pre><code class="language-cpp">int rak(int val,int ret=0,int t=0)
+{
+    val+=(int)1e7;
+    for(int i=31,rt=root,t;i;i--)
+	{
+        if((t=val&gt;&gt;i&amp;1))ret+=num[ch[rt][0]];
+        rt=ch[rt][t];
+    }
+    return ret;
+}
+</code></pre>
+<ol start="3">
+<li>查询第k位</li>
+</ol>
+<pre><code class="language-cpp">int kth(int k,int ret=0)
+{
+    for(int i=31,rt=root,t;i;i--)
+        if(k&gt;num[ch[rt][0]])ret|=1&lt;&lt;i,k-=num[ch[rt][0]],rt=ch[rt][1];
+        else rt=ch[rt][0];
+    return ret-(int)1e7;
+}
+</code></pre>
+<p>其余操作可如下处理</p>
+<pre><code class="language-cpp">cond(5,printf(&quot;%d\n&quot;,kth(rak(y))+1));
+cond(6,printf(&quot;%d\n&quot;,kth(rak(y+1)+1)+1));
+</code></pre>
+<ul>
+<li>###注意</li>
+</ul>
+<ol>
+<li>空间要开32倍；</li>
+<li>复杂度均为严格logn；</li>
+</ol>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>完</p>
+</blockquote>
+</blockquote>
+</blockquote>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Hello Gridea]]></title>
         <id>https://2574580837wzc.github.io/post/hello-gridea/</id>
