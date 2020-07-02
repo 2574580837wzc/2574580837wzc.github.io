@@ -1948,11 +1948,15 @@ body {
     .next-md-body a:hover, .friends-box a:hover {
       color: #222;
       border-bottom-color: #222;
-    }
-      .nav-item a {
-        color:  #555;
+    }.nav-item a {
+        color: #555;
+      }
+      .nav-item-active a {
+        color: #555;
+        border-bottom: 1px solid #555 !important;
       }.nav-item a:hover {
         color: #222;
+        border-bottom: 1px solid #222 !important;
       }.nav-item-active {
       background: #f9f9f9;
     }
@@ -1984,7 +1988,11 @@ body {
     .active-hidden > a {
       color: #fc6423;
       border-bottom-color: #fc6423;
-    }.site-nav, .sidebar-wrapper, .section-box, .sidebar-box, .site-nav, .blog-header {
+    }.header {
+        opacity: 0.8;
+        background-color: #fff;
+      }
+      .muse.section-layout {
         opacity: 0.8;
       }
       .site-meta {
@@ -2002,8 +2010,8 @@ body {
     .mist .site-title i {
       background: #FFF;
     }body {
-    background: rgba(12, 100, 129, 1) url('https://random.52ecy.cn/randbg.php') fixed no-repeat;   //修改背景图片
-    color: #555;
+   // background: rgba(12, 100, 129, 1) url('https://random.52ecy.cn/randbg.php') fixed no-repeat;   //修改背景图片
+    //color: #555;
 }.box-shadow-wrapper {
       box-shadow: none !important;
     }
